@@ -83,8 +83,13 @@ void monter() {
 }
 
 void Robot50HzInterrupt() {   
-    valeurLue=5; //debug
-    beDetect = detecter();
+    //int valeurLue=5; //debug
+    
+    if (cpt==5){
+      beDetect = detecter();
+      int cpt=0;
+    }
+    cpt+=1;
     
     if(beDetect){
         digitalWrite(ledPin, HIGH);
@@ -118,7 +123,7 @@ void loop() {
        Serial.println(detection);
      }
 
-     delay(250);
+     //delay(250);
      digitalWrite(ledPin, LOW);
      monter();
 }
